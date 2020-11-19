@@ -16,8 +16,9 @@ class CreateStripeSettingsTable extends Migration
         Schema::create('stripe_settings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('public_key', 255);
-            $table->string('secret_key', 255);
+            $table->string('token', 255)->unique();
+            $table->text('public_key');
+            $table->text('secret_key');
             $table->timestamps();
         });
     }

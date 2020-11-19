@@ -12,7 +12,7 @@ class StripeSetting extends Model
 
     protected $encryptable = ['public_key', 'secret_key'];
 
-    protected $fillable = ['user_id', 'public_key', 'secret_key'];
+    protected $fillable = ['user_id', 'token', 'public_key', 'secret_key'];
 
     public function user(): BelongsTo
     {

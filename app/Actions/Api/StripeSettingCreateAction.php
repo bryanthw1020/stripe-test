@@ -12,6 +12,7 @@ class StripeSettingCreateAction
     {
         $stripeSetting = StripeSetting::create([
             'user_id' => Auth::id(),
+            'token' => md5($publicKey),
             'public_key' => $publicKey,
             'secret_key' => $secretKey
         ]);

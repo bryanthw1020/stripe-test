@@ -14,7 +14,7 @@ class StripeSettingUpdateAction
 
         Gate::authorize('update', $stripeSetting);
 
-        $stripeSetting->update(['public_key' => $publicKey, 'secret_key' => $secretKey]);
+        $stripeSetting->update(['token' => md5($publicKey), 'public_key' => $publicKey, 'secret_key' => $secretKey]);
 
         return new ResourcesStripeSetting($stripeSetting);
     }

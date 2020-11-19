@@ -17,6 +17,7 @@ class StripeSetting extends JsonResource
         return [
             'id' => $this->id,
             'user_id' => $this->user_id,
+            'token' => $this->token,
             'public_key' => $this->public_key,
             'secret_key' => $this->secret_key,
             'user' => new User($this->user)
