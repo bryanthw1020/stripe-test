@@ -8,5 +8,6 @@ return [
     'no_permission_perform_action' => 'You do not have the permission to perform this action.',
     'no_record' => 'No record found.',
     'invalid_input' => 'The given data is invalid.',
+    'invalid_stripe_token' => 'Invalid stripe setting token.',
     'server_error' => 'Internal server error.',
 ];

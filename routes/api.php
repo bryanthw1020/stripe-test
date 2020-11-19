@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::apiResource('stripe-settings', 'Api\StripeSettingController');
+Route::group(['middleware' => 'auth:sanctum', 'namespace' => 'Api'], function () {
+    Route::apiResource('stripe-settings', 'StripeSettingController');
+    Route::apiResource('payment-intents', 'PaymentIntentController')->only('store');
 });

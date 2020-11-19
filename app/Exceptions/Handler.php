@@ -8,6 +8,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -57,6 +58,8 @@ class Handler extends ExceptionHandler
             return Responder::notFound();
         } else if ($ex instanceof ValidationException) {
             return Responder::inputError($ex->errors());
+        } else if ($ex instanceof BadRequestException) {
+            return Responder::error($ex->getMessage());
         } else {
             return Responder::serverError($ex->getMessage());
         }
